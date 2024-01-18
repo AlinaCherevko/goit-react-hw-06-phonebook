@@ -1,15 +1,19 @@
 import React from 'react';
 import css from './ContactList.module.css';
 
-const ContactList = ({ users, deleteUser }) => {
+export const ContactList = ({ users, deleteUser }) => {
   return (
-    <div>
+    <div className={css.listWrapper}>
       {users.map(user => (
         <div key={user.id} className={css.wrapper}>
-          <p>
-            {user.userName}:{user.userNumber}
+          <p className={css.description}>
+            {user.userName}: {user.userNumber}
           </p>
-          <button onClick={() => deleteUser(user.id)} type="button">
+          <button
+            className={css.button}
+            onClick={() => deleteUser(user.id)}
+            type="button"
+          >
             Delete
           </button>
         </div>
@@ -17,5 +21,3 @@ const ContactList = ({ users, deleteUser }) => {
     </div>
   );
 };
-
-export default ContactList;

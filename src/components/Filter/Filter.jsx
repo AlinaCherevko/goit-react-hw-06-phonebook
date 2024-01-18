@@ -1,7 +1,7 @@
 import React from 'react';
 import css from './Filter.module.css';
 
-const Filter = ({ handleChangeForm, value }) => {
+export const Filter = ({ handleChangeForm, value }) => {
   return (
     <div className={css.divWrapper}>
       <label className={css.label}>Find contact by name</label>
@@ -15,5 +15,3 @@ const Filter = ({ handleChangeForm, value }) => {
     </div>
   );
 };
-
-export default Filter;

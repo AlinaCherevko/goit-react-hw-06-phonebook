@@ -39,36 +39,39 @@ export const ContactForm = ({ addNewName }) => {
   };
 
   return (
-    <form className={css.form} onSubmit={formSubmit}>
-      <div className={css.divWrapper}>
-        <label htmlFor="" className={css.label}>
-          Name
-        </label>
-        <input
-          onChange={onChangeInputForm}
-          value={userName}
-          type="text"
-          name="userName"
-          className={css.input}
-          required
-        />
-      </div>
-      <div className={css.divWrapper}>
-        <label htmlFor="" className={css.label}>
-          Number
-        </label>
-        <input
-          onChange={onChangeInputForm}
-          value={userNumber}
-          type="number"
-          name="userNumber"
-          className={css.input}
-          required
-        />
-      </div>
-      <button className={css.button} type="submit">
-        Add contact
-      </button>
-    </form>
+    <div className={css.wrapper}>
+      <h1 className={css.title}>Add new contact</h1>
+      <form className={css.form} onSubmit={formSubmit}>
+        <div className={css.divWrapper}>
+          <label htmlFor="" className={css.label}>
+            Name
+          </label>
+          <input
+            onChange={onChangeInputForm}
+            value={userName}
+            type="text"
+            name="userName"
+            className={css.input}
+            required
+          />
+        </div>
+        <div className={css.divWrapper}>
+          <label htmlFor="" className={css.label}>
+            Number
+          </label>
+          <input
+            onChange={onChangeInputForm}
+            value={userNumber}
+            type="text"
+            name="userNumber"
+            className={css.input}
+            required
+          />
+        </div>
+        <button className={css.button} type="submit">
+          Add contact
+        </button>
+      </form>
+    </div>
   );
 };

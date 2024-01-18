@@ -1,5 +1,15 @@
+.title {
+  text-align: center;
+  color: #fff;
+  font-weight: 600;
+  font-size: 24px;
+}
 .form {
+  margin-left: auto;
+  margin-right: auto;
   width: 328px;
+  border: transparent;
+  background-color: #fff;
 
   display: flex;
   flex-direction: column;
@@ -15,13 +25,28 @@
 
 .input {
   width: 320px;
+  height: 20px;
+  border: 1px solid #94bfc6;
+  border-radius: 4px;
+}
+.input:hover,
+.input:focus {
+  border-color: #94bfc6;
 }
 .label {
   margin-bottom: 6px;
+  color: #94bfc6;
+  font-size: 18px;
 }
 .button {
   display: flex;
-  padding: 2px 8px;
+  padding: 4px 8px;
   width: 100px;
   justify-content: center;
+  background-color: #94bfc6;
+  border-radius: 4px;
+}
+.button:hover,
+.button:focus {
+  color: #fff;
 }

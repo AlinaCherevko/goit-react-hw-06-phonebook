@@ -1,5 +1,24 @@
 .wrapper {
   display: flex;
+  flex-direction: row;
+  justify-content: center;
   align-items: center;
   gap: 30px;
+}
+.description {
+  font-size: 24px;
+  font-weight: 500;
+  color: #e7edee;
+}
+.button {
+  display: flex;
+  padding: 4px 8px;
+  width: 100px;
+  justify-content: center;
+  background-color: #94bfc6;
+  border-radius: 4px;
+}
+.button:hover,
+.button:focus {
+  color: #fff;
 }
