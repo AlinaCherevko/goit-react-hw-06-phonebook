@@ -2,7 +2,7 @@ import React from 'react';
 import { nanoid } from 'nanoid';
 import { ContactForm, ContactList, Filter } from '../components';
 import { useDispatch, useSelector } from 'react-redux';
-import { store } from './redux/store';
+// import { store } from './redux/store';
 import { addContact, deleteContact } from './redux/contacts/contactsSlice';
 import { filterContact } from './redux/filter/filterSlice';
 import css from './App.module.css';
