@@ -1,17 +1,27 @@
 import React from 'react';
 import css from './ContactList.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteContact } from 'components/redux/contacts/contactsSlice';
 
-export const ContactList = ({ users, deleteUser }) => {
+export const ContactList = () => {
+  const dispatch = useDispatch();
+  const filter = useSelector(store => store.filter.filter);
+  const contacts = useSelector(store => store.contacts.contacts);
+
+  //шукаємо підрядок у рядку, далі ми передамо цей об,єкт у рендер
+  const filteredContact = contacts.filter(user =>
+    user.userName.toLowerCase().includes(filter.trim().toLowerCase())
+  );
   return (
     <div className={css.listWrapper}>
-      {users.map(user => (
+      {filteredContact.map(user => (
         <div key={user.id} className={css.wrapper}>
           <p className={css.description}>
             {user.userName}: {user.userNumber}
           </p>
           <button
             className={css.button}
-            onClick={() => deleteUser(user.id)}
+            onClick={() => dispatch(deleteContact(user.id))}
             type="button"
           >
             Delete

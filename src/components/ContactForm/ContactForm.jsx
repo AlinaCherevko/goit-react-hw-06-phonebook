@@ -1,22 +1,43 @@
 import React, { useState } from 'react';
+import { nanoid } from 'nanoid';
+import { useDispatch, useSelector } from 'react-redux';
 import css from './ContactForm.module.css';
+import { addContact } from 'components/redux/contacts/contactsSlice';
 
-export const ContactForm = ({ addNewName }) => {
+export const ContactForm = () => {
+  const dispatch = useDispatch();
+  const contacts = useSelector(store => store.contacts.contacts);
+
   const [userName, setUserName] = useState('');
   const [userNumber, setUserNumber] = useState('');
 
+  const addNewName = formData => {
+    const avoidRepitition = contacts.some(
+      contact => contact.userName === formData.userName
+    );
+    if (avoidRepitition) {
+      alert(`${formData.userName} is already exist!`);
+      return;
+    }
+
+    const finalProfile = {
+      ...formData,
+      id: nanoid(),
+    };
+    const action = addContact(finalProfile);
+    dispatch(action);
+  };
   const formSubmit = e => {
     e.preventDefault();
-    // const userName = userName;
-    // const userNumber = userNumber;
-    // const userName = e.currentTarget.elements.name.value;
-    // const userNumber = e.currentTarget.elements.number.value;
+
     const formData = {
       userName,
       userNumber,
+      id: nanoid(),
     };
     // console.log(formData);
     addNewName(formData);
+
     //контрольовано очищуємо вміст форми:
     setUserName('');
     setUserNumber('');
